@@ -32,8 +32,8 @@ class Invader(context: Context, row: Int, column: Int, screenX: Int, screenY: In
 
     companion object {
         // The alien ship will be represented by a Bitmap
-        var bitmap1: Bitmap? = null
-        var bitmap2: Bitmap? = null
+        lateinit var bitmap1: Bitmap
+        lateinit var bitmap2: Bitmap
 
         // keep track of the number of instances
         // that are active
