@@ -461,7 +461,7 @@ class KotlinInvadersView(context: Context,
             MotionEvent.ACTION_MOVE-> {
                 paused = false
 
-                if (motionEvent.y > size.y - size.y / 8) {
+                if (motionEvent.y > size.y - (size.y / 8)) {
                     if (motionEvent.x > size.x / 2) {
                         playerShip.moving = PlayerShip.right
                     } else {
@@ -470,7 +470,7 @@ class KotlinInvadersView(context: Context,
 
                 }
 
-                if (motionEvent.y < size.y - size.y / 8) {
+                if (motionEvent.y < size.y - (size.y / 8)) {
                     // Shots fired
                     if (playerBullet.shoot(
                                     playerShip.position.left + playerShip.width / 2f,
@@ -485,7 +485,7 @@ class KotlinInvadersView(context: Context,
         // Player has removed finger from screen
             MotionEvent.ACTION_POINTER_UP,
             MotionEvent.ACTION_UP -> {
-                if (motionEvent.y > size.y - size.y / 10) {
+                if (motionEvent.y > size.y - (size.y / 8)) {
                     playerShip.moving = PlayerShip.stopped
                 }
             }
