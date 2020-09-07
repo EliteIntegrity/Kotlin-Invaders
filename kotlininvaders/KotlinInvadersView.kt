@@ -452,6 +452,7 @@ class KotlinInvadersView(context: Context,
     // The SurfaceView class implements onTouchListener
     // So we can override this method and detect screen touches.
     override fun onTouchEvent(motionEvent: MotionEvent): Boolean {
+        val motionArea = size.y - (size.y / 8)
         when (motionEvent.action and MotionEvent.ACTION_MASK) {
 
         // Player has touched the screen
@@ -461,7 +462,7 @@ class KotlinInvadersView(context: Context,
             MotionEvent.ACTION_MOVE-> {
                 paused = false
 
-                if (motionEvent.y > size.y - size.y / 8) {
+                if (motionEvent.y > motionArea) {
                     if (motionEvent.x > size.x / 2) {
                         playerShip.moving = PlayerShip.right
                     } else {
@@ -470,7 +471,7 @@ class KotlinInvadersView(context: Context,
 
                 }
 
-                if (motionEvent.y < size.y - size.y / 8) {
+                if (motionEvent.y < motionArea) {
                     // Shots fired
                     if (playerBullet.shoot(
                                     playerShip.position.left + playerShip.width / 2f,
@@ -485,7 +486,7 @@ class KotlinInvadersView(context: Context,
         // Player has removed finger from screen
             MotionEvent.ACTION_POINTER_UP,
             MotionEvent.ACTION_UP -> {
-                if (motionEvent.y > size.y - size.y / 10) {
+                if (motionEvent.y > motionArea) {
                     playerShip.moving = PlayerShip.stopped
                 }
             }
