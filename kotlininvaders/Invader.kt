@@ -109,7 +109,7 @@ class Invader(context: Context, row: Int, column: Int, screenX: Int, screenY: In
 
             // The fewer invaders the more each invader shoots
             // The higher the wave the more the invader shoots
-            randomNumber = generator.nextInt(100 * numberOfInvaders) / waves
+            randomNumber = generator.nextInt((100 * numberOfInvaders) / waves)
             if (randomNumber == 0) {
                 return true
             }
